@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- All Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="DexignLab" />
+    <meta name="robots" content="" />
+    <meta name="description" content="FoodDesk - Online Food Delivery Admin Dashboard" />
+    <meta property="og:title" content="FoodDesk - Online Food Delivery Admin Dashboard" />
+    <meta property="og:description" content="FoodDesk - Online Food Delivery Admin Dashboard" />
+    <meta property="og:image" content="../fooddesk.dexignlab.com/xhtml/social-image.png" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Mobile Specific -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- PAGE TITLE HERE -->
+    <title>FoodDesk - Online Food Delivery Admin Dashboard</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png" />
+
+    <!-- Template CSS (FROM /assets/) -->
+    <link rel="stylesheet" href="/assets/vendor/jquery-nice-select/css/nice-select.css" />
+    <link rel="stylesheet" href="/assets/vendor/swiper/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" />
+
+    <!-- Main Template Style -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!-- Icon Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <!-- Required Vendors / JS (FROM /assets/) -->
+    <script src="/assets/vendor/global/global.min.js"></script>
+    <script src="/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="/assets/vendor/chart.js/chart.bundle.min.js"></script>
+    <script src="/assets/vendor/swiper/js/swiper-bundle.min.js"></script>
+    <script src="/assets/vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+
+    <!-- Template JS -->
+    <script src="/assets/js/dlabnav-init.js"></script>
+    <script src="/assets/js/custom.js"></script>
+    <script src="/assets/js/demo.js"></script>
+    <script src="/assets/js/styleSwitcher.js"></script>
+
+    <!-- Swiper + Selectpicker + jQuery Logic -->
+    <script>
+        $('.my-select').selectpicker();
+
+        var swiper = new Swiper(".mySwiper-1", {
+            loop: true,
+            autoplay: { delay: 3000 },
+            navigation: {
+                nextEl: ".swiper-button-next-1",
+                prevEl: ".swiper-button-prev-1",
+            },
+            pagination: {
+                el: ".swiper-pagination-banner",
+                clickable: true,
+            }
+        });
+
+        var swiper = new Swiper(".mySwiper-2", {
+            slidesPerView: 5,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: { delay: 1000 },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            breakpoints: {
+                360: { slidesPerView: 2, spaceBetween: 20 },
+                600: { slidesPerView: 3, spaceBetween: 20 },
+                768: { slidesPerView: 4, spaceBetween: 20 },
+                1200: { slidesPerView: 3, spaceBetween: 20 },
+                1920: { slidesPerView: 5, spaceBetween: 20 },
+            },
+        });
+
+        var swiper = new Swiper(".mySwiper-3", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            autoplay: { delay: 2000 },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            breakpoints: {
+                360: { slidesPerView: 1, spaceBetween: 20 },
+                600: { slidesPerView: 2, spaceBetween: 20 },
+                768: { slidesPerView: 3, spaceBetween: 20 },
+                1200: { slidesPerView: 2, spaceBetween: 20 },
+                1400: { slidesPerView: 3, spaceBetween: 20 },
+            },
+        });
+
+        $(function () {
+            $('[data-decrease]').on('click', function () {
+                let value = $(this).parent().find('[data-value]').val();
+                if (value > 0) value--;
+                $(this).parent().find('[data-value]').val(value);
+            });
+
+            $('[data-increase]').on('click', function () {
+                let value = $(this).parent().find('[data-value]').val();
+                if (value < 100) value++;
+                $(this).parent().find('[data-value]').val(value);
+            });
+        });
+
+        $(document).ready(function () {
+            $(".plus").click(function () {
+                $(this).toggleClass("active");
+            });
+        });
+
+        $(document).ready(function () {
+            $(".c-heart").click(function () {
+                $(this).toggleClass("active");
+            });
+        });
+    </script>
+
+    <!-- React App -->
+    <script type="module" src="/src/main.jsx"></script>
+
+</body>
+
+</html>
